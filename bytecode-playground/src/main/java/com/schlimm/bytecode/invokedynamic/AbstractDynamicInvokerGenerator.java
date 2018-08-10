@@ -15,7 +15,7 @@ import org.objectweb.asm.Handle;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-import com.sun.xml.internal.ws.org.objectweb.asm.Type;
+//import com.sun.xml.internal.ws.org.objectweb.asm.Type;
 
 @SuppressWarnings("unused")
 public abstract class AbstractDynamicInvokerGenerator implements Opcodes {
@@ -47,7 +47,7 @@ public abstract class AbstractDynamicInvokerGenerator implements Opcodes {
 			Handle bootstrap = new Handle(Opcodes.H_INVOKESTATIC, dynamicLinkageClassName, bootstrapMethodName,
 					mt.toMethodDescriptorString());
 			int maxStackSize = addMethodParameters(mv);
-			mv.visitInvokeDynamicInsn("runCalculation", targetMethodDescriptor, bootstrap);
+			mv.visitInvokeDynamicInsn("anyNameItDoesNotMatter", targetMethodDescriptor, bootstrap);
 			mv.visitInsn(RETURN);
 			mv.visitMaxs(maxStackSize, 1);
 			mv.visitEnd();

@@ -15,7 +15,9 @@ public class SimpleDynamicLinkageExample {
 		System.out.println("There we go!");
 	}
 
-	public static CallSite bootstrapDynamic(MethodHandles.Lookup caller, String name, MethodType type) throws NoSuchMethodException, IllegalAccessException {
+	public static final String BootstrapDynamicName = "runme";
+
+	public static CallSite runme(MethodHandles.Lookup caller, String name, MethodType type) throws NoSuchMethodException, IllegalAccessException {
 		MethodHandles.Lookup lookup = MethodHandles.lookup();
 		Class thisClass = lookup.lookupClass(); // (who am I?)
 		sayHello = lookup.findStatic(thisClass, "sayHello", MethodType.methodType(void.class));
